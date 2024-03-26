@@ -1,19 +1,43 @@
 <?php
 
+  
+
 namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-
+use Illuminate\Http\Request;
+use DataTables;
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+
+            $data = Category::query();
+
+            return Datatables()->of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+       
+                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+      
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+          
+        return view('categories.all');
     }
 
     /**

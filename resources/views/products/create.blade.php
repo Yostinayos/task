@@ -11,8 +11,9 @@
 
 <div class="container mt-3">
   <h2>Add product</h2>
-  <form method="POST" action="{{rout('pro')}}">
+  <form method="POST" action="{{url('products/')}}">
   
+  @csrf
     <div class="mb-3">
       <label for="pwd"> <p>Product name:</p></label>
       <input type="text" class="form-control mt-3" placeholder="Product name">

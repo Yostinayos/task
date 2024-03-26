@@ -33,12 +33,8 @@ class ProductController extends Controller
     { 
 
         $request=$request->validated();
-        $product= new Product;
-        $product->name= $request->name;
-        
-        $product->category_id= $request->category_id;
-
-           $product->save();
+       
+        $product = Product::create($request);
 
         return redirect('/')->with('add successfully');
     }
