@@ -12,7 +12,7 @@
        
 <div class="container">
     <div class="card mt-5">
-        <h3 class="card-header p-3">Laravel 11 Yajra Datatables Tutorial - ItSolutionStuff.com</h3>
+        <h3 class="card-header p-3">Categories</h3>
         <div class="card-body">
             <table class="table table-bordered data-table">
                 <thead>

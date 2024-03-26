@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title','Product')</title>
-</head>
+@section('page-content')
+<div class="containers">
+    <div class="card">
 
-<body>
-    name: {{$product->name}}
-    </br>
-    price: {{$product->price}}
-    </br>
-    category: {{$product->category->name}}
-    </br>
-    code:{{$product->category->code}}
-    </br>
-    @php
-    $image= $product->images;
-    @endphp
-    @foreach($image as $i)
-    <img src="{{$i->image}}" alt="" style="width:30%"> @endforeach
-</body>
+        <h1>Products</h1>
+        <h2> name: {{$product->name}}</h2>
 
-</html>
+
+
+        <p>price:{{$product->price}}</p>
+        </br>
+        <h3>category:{{$product->category->name}}</h3>
+        </br>
+        <h3>code:{{$product->category->code}}</h3>
+        </br>
+        @php
+        $image= $product->images;
+        @endphp
+        <div class="containersi">
+            @foreach($image as $i)
+            <img src="{{$i->image}}" alt="">
+            <hr> @endforeach
+        </div>
+    </div>
+
+</div>
+@endsection
+
+
